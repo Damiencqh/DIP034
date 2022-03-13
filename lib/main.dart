@@ -73,11 +73,11 @@ class _HomeState extends State<Home> {
 
   }
 
-  Widget box(String title, Color backgroundcolor) {
+  Widget box(String name, Color backgroundcolor) {
     return Container(
         margin: EdgeInsets.all(10),
         width: 330,
-        color: Colors.orangeAccent,
+        color: Colors.blueGrey,
 
         child:
             Column(
@@ -85,7 +85,7 @@ class _HomeState extends State<Home> {
 
                ElevatedButton(
                 child:
-                  Text(title),
+                  Text(name),
 
             onPressed: () {
               Navigator.push(
@@ -94,8 +94,13 @@ class _HomeState extends State<Home> {
               );
             }
         ),
-                Text(title),
-                Text('Available to Teach EE2001, EE2002'),
+                Text(''),
+                Text('Available to Teach :',
+                  style: TextStyle(
+                    fontSize: 20,
+                    color:Colors.white,
+                  ),
+                ),
 
 
 
@@ -231,4 +236,3 @@ class SecondRoute extends StatelessWidget {
     );
   }
 }
-

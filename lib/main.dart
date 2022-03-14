@@ -19,7 +19,7 @@ class Home extends  StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List<String> tutName = ["Peter", "Tony", "Banner", "Steve", "Bruce", "Clark"]; //implement database
+  List<String> tutName = ["EE3000", "EE3002", "EE30004", "EE3006", "EE3008", "EE3010"]; //implement database
   List<String> description = ["EE1","EE2","EE3","EE4","EE5","EE6"];
 
   @override

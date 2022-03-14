@@ -94,14 +94,14 @@ class _HomeState extends State<Home> {
               );
             }
         ),
-                Text(''),
-                Text('Available to Teach :',
+                 const Text(''), // space
+                const Text('Available to Teach :',
                   style: TextStyle(
                     fontSize: 20,
                     color:Colors.white,
                   ),
                 ),
-
+                    Text(''), // for subjects to teach (variable)
 
 
 ]

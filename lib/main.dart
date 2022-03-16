@@ -19,9 +19,9 @@ class Home extends  StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List<String> tutName = ["Peter", "Parker", "Spid", "Derman", "Peter", "4"]; //implement database
-  List<String> description = ["error no description found","Peter's description",
-    " Parker's description","Spid's description","EE4","EE5","EE6"];
+  List<String> tutName = ["EE1000", "EE2000", "EE3000", "EE4000", "EE5000", "EE6001"]; //implement database
+  List<String> description = ["No tutor found for this mod"," Peter ",
+    " Parker "," Spid "," Tony "," Bruce "," Banner "];
   List<String> description2 = ["error no description found 2","Peter's description2",
     " Parker's description2","Spid's description2 ","EE4","EE5","EE6"];
 
@@ -35,13 +35,13 @@ class _HomeState extends State<Home> {
         ),
 
         body: Container(
-          color: Colors.teal,
+            color: Colors.teal,
             padding: EdgeInsets.all(20),
             child: Column(
                 children: [
                   //Column(
                   //  height: 50,
-                 // ),
+                  // ),
 
                   Container(
                       height: 500,
@@ -129,13 +129,19 @@ class _HomeState extends State<Home> {
     name=name;
 
     switch(name) {
-      case 'Peter':
-        return description[1];
+      case 'EE1000':
+        return description[1] + description[2];
 
-      case 'Parker':
-        return description[2];
+      case 'EE2000':
+        return description[2]+description[3];
 
-      case 'Spid':
+      case 'EE3000':
+        return description[5];
+
+      case 'EE4000':
+        return description[2]+description[5];
+
+      case 'EE5000':
         return description[3];
 
       default:

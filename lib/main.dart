@@ -19,10 +19,14 @@ class Home extends  StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List<String> tutName = ["EE3000", "EE3002", "EE30004", "EE3006", "EE3008", "EE3010"]; //implement database
-  List<String> description = ["EE1","EE2","EE3","EE4","EE5","EE6"];
+  List<String> tutName = ["Peter", "Parker", "Spid", "Derman", "Peter", "4"]; //implement database
+  List<String> description = ["error no description found","Peter's description",
+    " Parker's description","Spid's description","EE4","EE5","EE6"];
+  List<String> description2 = ["error no description found 2","Peter's description2",
+    " Parker's description2","Spid's description2 ","EE4","EE5","EE6"];
 
   @override
+
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
@@ -31,22 +35,33 @@ class _HomeState extends State<Home> {
         ),
 
         body: Container(
+          color: Colors.teal,
             padding: EdgeInsets.all(20),
             child: Column(
-              children: [
+                children: [
+                  //Column(
+                  //  height: 50,
+                 // ),
 
-                Container(
-                    height: 500,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: tutName.map((names) {
-                        return box(names, Colors.green);
-                      }).toList(),
+                  Container(
+                      height: 500,
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.orangeAccent,
+                            width: 10,
+                          ),
+                          borderRadius: BorderRadius.all(Radius.circular(20))
+                      ),
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: tutName.map((names) {
+                          return box(names, Colors.green);
+                        }).toList(),
 
-                    )
-                ),
+                      )
+                  ),
 
-                Container(
+                  Container(
                     height: 100,
                     child: ElevatedButton(
                       child: const Text(
@@ -56,20 +71,20 @@ class _HomeState extends State<Home> {
                       onPressed: () {},  // ADD listing Nav
                       style: ElevatedButton.styleFrom(
 
-                          fixedSize: const Size(100, 150),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20)),
+                        fixedSize: const Size(100, 150),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20)),
 
+                      ),
                     ),
-                ),
-                )
+                  )
 
-              ]
+                ]
             )
 
 
         )
-        );
+    );
 
   }
 
@@ -79,34 +94,71 @@ class _HomeState extends State<Home> {
         width: 330,
         color: Colors.blueGrey,
 
-        child:
-            Column(
-              children: [
 
-               ElevatedButton(
-                child:
+        child:
+        Column(
+            children: [
+
+              ElevatedButton(
+                  child:
                   Text(name),
 
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const SecondRoute()),
-              );
-            }
-        ),
-                 const Text(''), // space
-                const Text('Available to Teach :',
-                  style: TextStyle(
-                    fontSize: 20,
-                    color:Colors.white,
-                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const SecondRoute()),
+                    );
+                  }
+              ),
+              const Text(''), // space
+              const Text('Available to Teach :',
+                style: TextStyle(
+                  fontSize: 20,
+                  color:Colors.white,
                 ),
-                    Text(''), // for subjects to teach (variable)
+              ),
+              Text(printText(name)),
 
 
-]
-            )
-        );
+            ]
+        )
+    );
+  }
+
+  String printText (String name) {
+    name=name;
+
+    switch(name) {
+      case 'Peter':
+        return description[1];
+
+      case 'Parker':
+        return description[2];
+
+      case 'Spid':
+        return description[3];
+
+      default:
+        return description[0]; // If name not found in list display error message
+    }
+  }
+
+  int desCheck (String name) {
+    name=name;
+
+    switch(name) {
+      case 'Peter':
+        return 1;
+
+      case 'Parker':
+        return 2;
+
+      case 'Spid':
+        return 3;
+
+      default:
+        return 0; // If name not found in list display error message
+    }
   }
 }
 
@@ -128,7 +180,7 @@ class SecondRoute extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.only(bottom: 8),
                   child: const Text(
-                    'DUNO',
+                    'Peter',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
@@ -185,7 +237,7 @@ class SecondRoute extends StatelessWidget {
           title: const Text('Tutor Listing'),
           automaticallyImplyLeading:true,
           leading: IconButton(icon: Icon(Icons.arrow_back_ios_new_outlined),
-          onPressed:() => Navigator.pop(context, false),
+            onPressed:() => Navigator.pop(context, false),
           ),
         ),
         body: ListView(
@@ -235,4 +287,6 @@ class SecondRoute extends StatelessWidget {
       ],
     );
   }
+
+
 }

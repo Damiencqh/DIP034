@@ -6,6 +6,7 @@ void main() {
 
 class MyApp extends StatelessWidget{
   @override
+
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Home()
@@ -29,8 +30,8 @@ class _HomeState extends State<Home> {
 
   List<String> tutName = ["EE1000", "EE2000", "EE3000", "EE4000", "EE5000", "EE6001"];//implement database
   List<String> names1 = ["ken","bob"];
-  List<String> description = ["No tutor found for this mod"," Peter \n",
-    " Parker \n"," Spid \n"," Tony \n"," Bruce \n"," Banner \n"];
+  List<String> description = ["No tutor found for this mod","Name: Peter \nEmail:Pete@gmail.com\n Contact: 88888999\n\n",
+    "Name: Parker \nEmail:Park@gmail.com\n Contact: 88889999\n \n"," Spid \n"," Tony \n"," Bruce \n"," Banner \n"];
   List<String> description2 = ["error no description found 2","Peter's description2",
     " Parker's description2","Spid's description2 ","EE4","EE5","EE6"];
   final myController = TextEditingController();
@@ -54,10 +55,13 @@ class _HomeState extends State<Home> {
                   // ),
 
                   Container(
-                    height:20,
-                    padding: EdgeInsets.all(8),
+
+                    height:40,
+                    padding: EdgeInsets.all(12),
                     child: TextField(
+
                       controller: myController,
+                      //String input = myController.text,
 
                     ),
                   ),
@@ -108,7 +112,8 @@ class _HomeState extends State<Home> {
   }
 
   Widget box(String name, Color backgroundcolor) {
-    return Container(
+
+      return Container(
         margin: EdgeInsets.all(10),
         width: 330,
         color: Colors.blueGrey,
@@ -116,6 +121,8 @@ class _HomeState extends State<Home> {
 
         child:
         Column(
+
+
             children: [
 
               ElevatedButton(
@@ -123,28 +130,30 @@ class _HomeState extends State<Home> {
                   Text(name),
 
                   onPressed: () {
-                   // Navigator.push(
+                    // Navigator.push(
                     //  context,
-                     // MaterialPageRoute(builder: (context) => const SecondRoute()),
-                  //  );
-                 }
+                    // MaterialPageRoute(builder: (context) => const SecondRoute()),
+                    //  );
+                  }
               ),
               const Text(''), // space
               const Text('Available to Teach :',
                 style: TextStyle(
                   fontSize: 20,
-                  color:Colors.white,
+                  color: Colors.white,
                 ),
               ),
-              
+
 
               Text(printText(name)),
 
 
             ]
         ),
-    );
-  }
+      );
+
+              }
+
 
   Widget box2(String name, Color backgroundcolor) {
     return Container(
@@ -178,7 +187,7 @@ class _HomeState extends State<Home> {
 
     switch(name) {
       case 'EE1000':
-        return description[1] + description[2];
+        return description[1]+description[2];
 
       case 'EE2000':
         return description[2]+description[3];
@@ -214,6 +223,7 @@ class _HomeState extends State<Home> {
         return 0; // If name not found in list display error message
     }
   }
+
 }
 
 class SecondRoute extends StatelessWidget {

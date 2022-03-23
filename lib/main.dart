@@ -19,11 +19,21 @@ class Home extends  StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List<String> tutName = ["EE1000", "EE2000", "EE3000", "EE4000", "EE5000", "EE6001"]; //implement database
-  List<String> description = ["No tutor found for this mod"," Peter ",
-    " Parker "," Spid "," Tony "," Bruce "," Banner "];
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    myController.dispose();
+    super.dispose();
+  }
+
+  List<String> tutName = ["EE1000", "EE2000", "EE3000", "EE4000", "EE5000", "EE6001"];//implement database
+  List<String> names1 = ["ken","bob"];
+  List<String> description = ["No tutor found for this mod"," Peter \n",
+    " Parker \n"," Spid \n"," Tony \n"," Bruce \n"," Banner \n"];
   List<String> description2 = ["error no description found 2","Peter's description2",
     " Parker's description2","Spid's description2 ","EE4","EE5","EE6"];
+  final myController = TextEditingController();
 
   @override
 
@@ -42,6 +52,15 @@ class _HomeState extends State<Home> {
                   //Column(
                   //  height: 50,
                   // ),
+
+                  Container(
+                    height:20,
+                    padding: EdgeInsets.all(8),
+                    child: TextField(
+                      controller: myController,
+
+                    ),
+                  ),
 
                   Container(
                       height: 500,
@@ -104,11 +123,11 @@ class _HomeState extends State<Home> {
                   Text(name),
 
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const SecondRoute()),
-                    );
-                  }
+                   // Navigator.push(
+                    //  context,
+                     // MaterialPageRoute(builder: (context) => const SecondRoute()),
+                  //  );
+                 }
               ),
               const Text(''), // space
               const Text('Available to Teach :',
@@ -117,7 +136,36 @@ class _HomeState extends State<Home> {
                   color:Colors.white,
                 ),
               ),
+              
+
               Text(printText(name)),
+
+
+            ]
+        ),
+    );
+  }
+
+  Widget box2(String name, Color backgroundcolor) {
+    return Container(
+        margin: EdgeInsets.all(10),
+        width: 150,
+        height: 50,
+        color: backgroundcolor,
+
+        child:
+        Column(
+            children: [
+
+              const Text("Name : "),// space
+              Text(name),
+              const Text('Email :',
+                style: TextStyle(
+                  fontSize: 20,
+                  color:Colors.white,
+                ),
+              ),
+              //Text(printText(name)),
 
 
             ]

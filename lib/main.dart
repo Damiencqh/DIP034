@@ -29,11 +29,18 @@ class _HomeState extends State<Home> {
   }
 
   List<String> tutName = ["EE1000", "EE2000", "EE3000", "EE4000", "EE5000", "EE6001"];//implement database
-  List<String> names1 = ["ken","bob"];
-  List<String> description = ["No tutor found for this mod","Name: Peter \nEmail:Pete@gmail.com\n Contact: 88888999\n\n",
-    "Name: Parker \nEmail:Park@gmail.com\n Contact: 88889999\n \n"," Spid \n"," Tony \n"," Bruce \n"," Banner \n"];
+  // List<String> email = ["No Email","Park@e.ntu.edu.sg","Pete@e.ntu.edu.sg","Spid@e.ntu.edu.sg","Tony@e.ntu.edu.sg","Bruce@e.ntu.edu.sg","Banner@e.ntu.edu.sg"];
+  //  List<String> contact =["No contact","90000001","90000002","90000003","90000004","90000005","90000006"];
+  List<String> description = ["No tutor found for this mod",
+    "Name: Peter \nEmail:Pete@gmail.com\n Contact: 20000001\n\n",
+    "Name: Parker \nEmail:Park@gmail.com\n Contact: 90000002\n\n",
+    "Name: Spid \nEmail:Spid@gmail.com\n Contact: 90000003\n\n",
+    "Name: Chan \nEmail:Chan@gmail.com\n Contact: 90000004\n\n",
+    "Name: Bruce \nEmail:Bruc@gmail.com\n Contact: 90000005\n\n",
+    "Name: Banner \nEmail:Bann@gmail.com\n Contact: 90000006\n\n"];
   List<String> description2 = ["error no description found 2","Peter's description2",
     " Parker's description2","Spid's description2 ","EE4","EE5","EE6"];
+
   final myController = TextEditingController();
 
   @override
@@ -61,12 +68,12 @@ class _HomeState extends State<Home> {
                     child: TextField(
 
                       controller: myController,
-                      //String input = myController.text,
+                      // String input = myController.text,
 
                     ),
                   ),
 
-                  Container(
+                  Container (
                       height: 500,
                       decoration: BoxDecoration(
                           border: Border.all(
@@ -75,7 +82,7 @@ class _HomeState extends State<Home> {
                           ),
                           borderRadius: BorderRadius.all(Radius.circular(20))
                       ),
-                      child: ListView(
+                      child: ListView (
                         scrollDirection: Axis.horizontal,
                         children: tutName.map((names) {
                           return box(names, Colors.green);
@@ -115,7 +122,7 @@ class _HomeState extends State<Home> {
 
       return Container(
         margin: EdgeInsets.all(10),
-        width: 330,
+        width: 310,
         color: Colors.blueGrey,
 
 
@@ -137,7 +144,7 @@ class _HomeState extends State<Home> {
                   }
               ),
               const Text(''), // space
-              const Text('Available to Teach :',
+              const Text('Tutors Available :',
                 style: TextStyle(
                   fontSize: 20,
                   color: Colors.white,
@@ -145,11 +152,17 @@ class _HomeState extends State<Home> {
               ),
 
 
-              Text(printText(name)),
+
+              Text(
+                    printText(name) //print tut listing with mod code input
+                  ),
+
+
 
 
             ]
         ),
+
       );
 
               }
@@ -158,27 +171,18 @@ class _HomeState extends State<Home> {
   Widget box2(String name, Color backgroundcolor) {
     return Container(
         margin: EdgeInsets.all(10),
-        width: 150,
-        height: 50,
+        width: 280,
         color: backgroundcolor,
 
         child:
-        Column(
-            children: [
+        ListView (
+      scrollDirection: Axis.horizontal,
+      children: tutName.map((names) {
+        return box(names, Colors.green);
+      }).toList(),
 
-              const Text("Name : "),// space
-              Text(name),
-              const Text('Email :',
-                style: TextStyle(
-                  fontSize: 20,
-                  color:Colors.white,
-                ),
-              ),
-              //Text(printText(name)),
+    )
 
-
-            ]
-        )
     );
   }
 
@@ -187,13 +191,13 @@ class _HomeState extends State<Home> {
 
     switch(name) {
       case 'EE1000':
-        return description[1]+description[2];
+        return description[1]+description[2]+description[3]+description[4]+description[5];
 
       case 'EE2000':
-        return description[2]+description[3];
+        return description[2]+description[3]+description[1]+description[2];
 
       case 'EE3000':
-        return description[5];
+        return description[5]+description[1]+description[2];
 
       case 'EE4000':
         return description[2]+description[5];
